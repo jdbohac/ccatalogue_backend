@@ -6,9 +6,17 @@ function App() {
 const [tools, setTools] = useState([])
 
 
+const getTools = () => {
+  axios.get('https://cc-api.herokuapp.com/tools').then((response) => {
+    setTools(response.data)
+  })
+}
+useEffect(() =>{
+  getTools()
+},[])
   return (
     <>
-    
+      <h1>hello world!</h1>
     </>
   );
 }
