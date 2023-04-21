@@ -10,7 +10,7 @@ function App() {
 const [view, setView] = useState('tools')
   return (
     <>
-      <h1>hello world!</h1>
+      <h1>Calhoun Catalog</h1>
       <Box>
       <p onClick={() => setView('tools')}>tools</p>
       <p onClick={() => setView('materials')}>materials</p>
