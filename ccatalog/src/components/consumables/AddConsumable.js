@@ -1,0 +1,55 @@
+import React, { useState } from 'react'
+import { Box, Button, TextField } from '@mui/material'
+
+const AddConsumable = (props) => {
+let blankConsumable = {name:'', brand:'', qty:'', link:''}
+const [consumable, setConsumable] = useState(blankConsumable)
+
+const handleChange = (event) => {
+  let newConsumable = {...consumable, [event.target.name]:event.target.value, tool_id:props.tool.id}
+  setConsumable(newConsumable)
+}
+const handleSubmit = (event) => {
+  event.preventDefault()
+  props.createConsumable(consumable)
+}
+  return (
+    <>
+        <Box
+        component="form"
+        onSubmit={handleSubmit}
+        >
+        <TextField
+            label="Name of Consumable Item"
+            name="name"
+            onChange={handleChange}
+            />
+            <br />
+            <br />
+        <TextField
+            label="Quantity"
+            name="qty"
+            onChange={handleChange}
+            />
+            <br />
+            <br />
+        <TextField
+            label="Brand"
+            name="brand"
+            onChange={handleChange}
+            />
+            <br />
+            <br />
+        <TextField
+            label="Purchase link"
+            name="link"
+            onChange={handleChange}
+            />
+            <br />
+            <Button type='submit'>Submit</Button>
+      </Box>
+    </>
+  )
+}
+
+export default AddConsumable
