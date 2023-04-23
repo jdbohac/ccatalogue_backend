@@ -2,9 +2,11 @@ import { Button } from '@mui/material'
 import axios from 'axios'
 import React, { useState } from 'react'
 import AddConsumable from '../consumables/AddConsumable'
+import EditConsumable from '../consumables/EditConsumable'
 
 const ShowTool = (props) => {
 const [showConsForm, setShowConsForm] = useState(false)
+const [showConsEdit, setShowConsEdit] = useState(false)
 const createConsumable = (addedConsumable) => {
   axios.post('https://cc-api.herokuapp.com/consumables', addedConsumable).then((response) => {
     console.log(response)
@@ -12,10 +14,21 @@ const createConsumable = (addedConsumable) => {
     console.log(error)
   })
 }
+const updateConsumable = (updatedConsumable) => {
+  axios.put('https://cc-api.herokuapp.com/consumables/' + updatedConsumable.id, updatedConsumable).then((response) => {
+    console.log(response)
+  })
+}
 const toggleConsForm = () => {
   setShowConsForm(!showConsForm)
 }
-
+const toggleConsEdit = (consumable) => {
+  if (showConsEdit !== false){
+  setShowConsEdit(false)
+  }else{
+  setShowConsEdit(consumable.id)
+  }
+}
   return (
     <div>
       <Button onClick={props.showList}>Back</Button>
@@ -40,6 +53,10 @@ const toggleConsForm = () => {
         <h4>Brand: {consumable.brand}</h4>
         <Button target='blank' href={consumable.link}>order more</Button>
         <h5>Qty: {consumable.qty}</h5>
+        <Button onClick={() => toggleConsEdit(consumable)}>Edit</Button>
+        {showConsEdit === consumable.id ?
+        <EditConsumable consumable={consumable} updateConsumable={updateConsumable} />
+        :null}
       </div>
       )
       })
