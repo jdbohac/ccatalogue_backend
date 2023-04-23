@@ -1,26 +1,39 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import AddTool from "./components/tools/AddTool";
 import './App.css';
 import Tools from "./components/tools/Tools";
 import Materials from "./components/materials/Materials";
-import { Box } from "@mui/material";
+import theme from "./themes/color_theme.js"
+import { Box, Grid, Paper, Typography, ThemeProvider, CssBaseline } from "@mui/material";
 
 function App() {
-const [view, setView] = useState('tools')
+  const [view, setView] = useState('tools')
   return (
     <>
-      <h1>Calhoun Catalog</h1>
-      <Box>
-      <p onClick={() => setView('tools')}>tools</p>
-      <p onClick={() => setView('materials')}>materials</p>
-      </Box>
-      
-      {view === 'tools' ?
-      <Tools />
-    : view === 'materials' ?
-      <Materials />
-    : null}
+    <ThemeProvider theme={theme}>
+    <CssBaseline>
+    <Grid container >
+            <Grid container pl={2} style={{ backgroundColor: "grey" }} textAlign="left">
+              <Paper color="secondary">
+        <h1>Calhoun Catalog</h1>
+        </Paper>
+      </Grid>
+              <Grid container style={{ backgroundColor: "grey" }} justifyContent="center">
+              <Paper color="secondary">
+          <Typography mx={5} display="inline" onClick={() => setView('tools')}>tools</Typography>
+                <Typography mx={5} display="inline" onClick={() => setView('materials')}>materials</Typography>
+              </Paper>
+              </Grid>
+      <Grid container p={2} justifyContent="space-around">
+        {view === 'tools' ?
+          <Tools />
+          : view === 'materials' ?
+            <Materials />
+          : null}
+      </Grid>
+      </Grid>
+        </CssBaseline>
+      </ThemeProvider>
     </>
   );
 }

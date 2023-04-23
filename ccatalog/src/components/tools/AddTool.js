@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Box, Button, TextField } from '@mui/material'
+import { Box, Button, Modal, TextField, Paper, Grid } from '@mui/material'
 
 
 const AddTool = (props) => {
@@ -15,7 +15,12 @@ const handleSubmit = (event) => {
 }
   return (
     <>
+    <Modal open={props.showAdd}>
+        <Grid container p={5} justifyContent="center">
+          <Paper>
+            <Box pl={3} pt={2} onClick={props.toggleShowAdd} >close</Box>
         <Box
+        p={5}
         component="form"
         onSubmit={handleSubmit}
         >
@@ -47,7 +52,10 @@ const handleSubmit = (event) => {
             />
             <br />
             <Button type='submit'>Submit</Button>
-      </Box>
+            </Box>
+          </Paper>
+        </Grid>
+      </Modal>
     </>
   )
 }
