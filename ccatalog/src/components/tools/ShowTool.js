@@ -53,7 +53,7 @@ const ShowTool = (props) => {
             <Box m={2} p={4}>
               <Button onClick={toggleToolEdit}>Edit</Button>
               {showToolEdit ?
-                <EditTool tool={props.tool} updateTool={updateTool} toggleToolEdit={toggleToolEdit} />
+                <EditTool tool={props.tool} getTools={props.getTools} showList={props.showList} updateTool={updateTool} toggleToolEdit={toggleToolEdit} />
                 :
                 <>
                   <Typography variant='h3'>{props.tool.name}</Typography>
@@ -83,7 +83,7 @@ const ShowTool = (props) => {
                 <Box m={2} p={3}>
                   <Button  onClick={() => toggleConsEdit(consumable)}>Edit</Button>
                   {showConsEdit === consumable.id ?
-                    <EditConsumable toggleConsEdit={toggleConsEdit} getOneTool={props.getOneTool} consumable={consumable} updateConsumable={updateConsumable} />
+                    <EditConsumable toggleConsEdit={toggleConsEdit} getOneTool={props.getOneTool} tool={props.tool} consumable={consumable} updateConsumable={updateConsumable} />
                     :
                     <>
                       <Typography variant='h3'>{consumable.name}</Typography>

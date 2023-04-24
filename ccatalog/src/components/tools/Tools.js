@@ -4,6 +4,7 @@ import AddTool from './AddTool'
 import ListTools from "./ListTools";
 import ShowTool from "./ShowTool"
 import { Box, Button, Container, Grid, Typography } from '@mui/material'
+import Search from "../Search";
 
 
 const Tools = () => {
@@ -51,8 +52,8 @@ const Tools = () => {
 
   return (
     <>
-
-      <Typography variant="h3" color='primary.dark'>Tools</Typography>
+      <Typography align="right" variant="h3" color='primary.dark'>Tools</Typography>
+      <Search showList={showList} setTools={setTools} />
       <Grid item m={2} xs={12}>
       <Container>
         <Button variant="contained" onClick={toggleShowAdd}>Add Tool</Button>
@@ -64,7 +65,7 @@ const Tools = () => {
       {view === 'list' ?
         <ListTools showTool={showTool} tools={tools} />
         :
-        <ShowTool getOneTool={getOneTool} showList={showList} tool={oneTool} />
+        <ShowTool getOneTool={getOneTool} getTools={getTools} showList={showList} tool={oneTool} />
       }
     </>
   )

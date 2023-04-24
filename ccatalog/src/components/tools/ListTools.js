@@ -5,6 +5,8 @@ const ListTools = (props) => {
 
   return (
     <>
+    {props.tools.length ? 
+    <>
     {props.tools.map(tool => {
       return(
       <Grid item md={4} xs={10} mt={2} key={tool.id} onClick={() => props.showTool(tool.id)}>
@@ -20,6 +22,8 @@ const ListTools = (props) => {
       </Grid>
       )
       })}
+      </>
+      : null}
     </>
   )
 }

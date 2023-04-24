@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Box, Button, Modal, TextField, Paper, Grid } from '@mui/material'
+import axios from 'axios'
 
 
 const AddTool = (props) => {
@@ -12,6 +13,13 @@ const AddTool = (props) => {
         event.preventDefault()
         props.updateTool(tool)
         props.toggleToolEdit()
+    }
+    const deleteTool = (event) => {
+      axios.delete('https://cc-api.herokuapp.com/tools/' + event.target.value).then((response) => {
+        console.log(response)
+        props.getTools()
+        props.showList()
+      })
     }
     return (
         <>
@@ -26,8 +34,6 @@ const AddTool = (props) => {
                     name="name"
                     onChange={handleChange}
                 />
-                <br />
-                <br />
                 <TextField
                     value={tool.qty}
                     label="Quantity"
@@ -42,8 +48,6 @@ const AddTool = (props) => {
                     name="brand"
                     onChange={handleChange}
                 />
-                <br />
-                <br />
                 <TextField
                     value={tool.link}
                     label="Purchase link"
@@ -52,6 +56,9 @@ const AddTool = (props) => {
                 />
                 <br />
                 <Button type='submit'>Submit</Button>
+                <Box textAlign='right'>
+                <Button variant='outlined' value={tool.id} onClick={deleteTool}>Delete</Button>
+                </Box>
             </Box>
 
         </>

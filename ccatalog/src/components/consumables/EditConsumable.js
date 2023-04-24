@@ -1,8 +1,16 @@
 import React, { useState } from 'react'
 import { Box, Button, TextField } from '@mui/material'
+import axios from 'axios'
 
 const EditConsumable = (props) => {
 const [consumable, setConsumable] = useState(props.consumable)
+
+const deleteConsumable = (event) => {
+  axios.delete('https://cc-api.herokuapp.com/consumables/' + event.target.value).then((response) => {
+    console.log(response)
+    props.getOneTool(props.tool.id)
+  })
+}
 
 const handleChange = (event) => {
   let newConsumable = {...consumable, [event.target.name]:event.target.value}
@@ -26,8 +34,6 @@ const handleSubmit = (event) => {
             name="name"
             onChange={handleChange}
             />
-            <br />
-            <br />
         <TextField
             value={consumable.qty}
             label="Quantity"
@@ -42,8 +48,6 @@ const handleSubmit = (event) => {
             name="brand"
             onChange={handleChange}
             />
-            <br />
-            <br />
         <TextField
             value={consumable.link}
             label="Purchase link"
@@ -52,6 +56,9 @@ const handleSubmit = (event) => {
             />
             <br />
             <Button type='submit'>Submit</Button>
+            <Box textAlign="right">
+            <Button variant='outlined' value={consumable.id} onClick={deleteConsumable}>Delete</Button>
+        </Box>
       </Box>
     </>
   )
