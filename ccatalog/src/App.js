@@ -26,7 +26,7 @@ function App() {
                 </Grid>
             </Grid>
           </Paper>
-      <Grid container spacing={2} p={2} justifyContent="space-around">
+      <Grid container spacing={2} p={2} justifyContent="center">
         {view === 'tools' ?
           <Tools />
           : view === 'materials' ?

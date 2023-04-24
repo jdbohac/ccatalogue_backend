@@ -13,7 +13,7 @@ const getResults = (event) => {
 
   return (
     <Box m={2}>
-    <TextField variant='outlined' placeholder='search tools' onChange={getResults}></TextField>
+    <TextField variant='outlined' label='search tools' onChange={getResults}></TextField>
     </Box>
   )
 }
