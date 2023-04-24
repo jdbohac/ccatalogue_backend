@@ -47,7 +47,7 @@ const ShowTool = (props) => {
           <h2>Consumables:</h2>
           <Button variant='contained' onClick={toggleConsForm}>Add Consumable</Button>
           {showConsForm ?
-            <AddConsumable tool={props.tool} createConsumable={createConsumable} />
+            <AddConsumable showConsForm={showConsForm} toggleConsForm={toggleConsForm} tool={props.tool} createConsumable={createConsumable} />
               : null}
         </Grid>
       </Grid>

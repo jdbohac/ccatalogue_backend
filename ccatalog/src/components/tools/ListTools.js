@@ -7,7 +7,7 @@ const ListTools = (props) => {
     <>
     {props.tools.map(tool => {
       return(
-      <Grid item md={4} key={tool.id} onClick={() => props.showTool(tool.id)}>
+      <Grid item md={4} xs={10} mt={2} key={tool.id} onClick={() => props.showTool(tool.id)}>
       <Paper>
       <Box p={3}>
         <h2>{tool.name}</h2>

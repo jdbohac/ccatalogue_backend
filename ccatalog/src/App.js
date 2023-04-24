@@ -12,18 +12,16 @@ function App() {
     <>
     <ThemeProvider theme={theme}>
     <CssBaseline>
-    <Grid container >
-            <Grid container pl={2} style={{ backgroundColor: "grey" }} textAlign="left">
-              <Paper color="secondary">
+          <Grid container >
+            <Paper color="secondary" style={{width:"100%"}}>
+            <Grid container pl={2} textAlign="left">
         <h1>Calhoun Catalog</h1>
-        </Paper>
       </Grid>
-              <Grid container style={{ backgroundColor: "grey" }} justifyContent="center">
-              <Paper color="secondary">
+              <Grid container justifyContent="center">
           <Typography mx={5} display="inline" onClick={() => setView('tools')}>tools</Typography>
                 <Typography mx={5} display="inline" onClick={() => setView('materials')}>materials</Typography>
-              </Paper>
-              </Grid>
+            </Grid>
+          </Paper>
       <Grid container p={2} justifyContent="space-around">
         {view === 'tools' ?
           <Tools />

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Box, Button, TextField } from '@mui/material'
+import { Box, Button, Grid, Modal, Paper, TextField } from '@mui/material'
 
 const AddConsumable = (props) => {
 let blankConsumable = {name:'', brand:'', qty:'', link:''}
@@ -15,7 +15,16 @@ const handleSubmit = (event) => {
 }
   return (
     <>
+    <Modal open={props.showConsForm}>
+    <Grid container p={5} justifyContent="center" >
+    <Paper>
+      <Box
+        pt={2}
+        pl={3}>
+      <p onClick={props.toggleConsForm}>close</p>
+    </Box>
         <Box
+        p={2}
         component="form"
         onSubmit={handleSubmit}
         >
@@ -48,6 +57,9 @@ const handleSubmit = (event) => {
             <br />
             <Button type='submit'>Submit</Button>
       </Box>
+          </Paper>
+        </Grid>
+      </Modal>
     </>
   )
 }

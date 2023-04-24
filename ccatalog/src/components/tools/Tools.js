@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import AddTool from './AddTool'
 import ListTools from "./ListTools";
 import ShowTool from "./ShowTool"
-import { Box, Button, Container, Grid } from '@mui/material'
+import { Box, Button, Container, Grid, Typography } from '@mui/material'
 
 
 const Tools = () => {
@@ -52,7 +52,7 @@ const Tools = () => {
   return (
     <>
 
-      <h1>Tools</h1>
+      <Typography variant="h3" color='secondary.light'>Tools</Typography>
       <Grid item m={2} xs={12}>
       <Container>
         <Button variant="contained" onClick={toggleShowAdd}>Add Tool</Button>
