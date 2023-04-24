@@ -1,15 +1,18 @@
-import { Button, Box, Grid, Container, Paper, Card } from '@mui/material'
+import { Button, Box, Grid, Container, Paper, Card, Typography } from '@mui/material'
 import axios from 'axios'
 import React, { useState } from 'react'
 import AddConsumable from '../consumables/AddConsumable'
 import EditConsumable from '../consumables/EditConsumable'
-
+import EditTool from './EditTool'
 const ShowTool = (props) => {
   const [showConsForm, setShowConsForm] = useState(false)
   const [showConsEdit, setShowConsEdit] = useState(false)
+  const [showToolEdit, setShowToolEdit] = useState(false)
+
   const createConsumable = (addedConsumable) => {
     axios.post('https://cc-api.herokuapp.com/consumables', addedConsumable).then((response) => {
       console.log(response)
+      props.getOneTool(props.tool.id)
     }).catch((error) => {
       console.log(error)
     })
@@ -17,7 +20,15 @@ const ShowTool = (props) => {
   const updateConsumable = (updatedConsumable) => {
     axios.put('https://cc-api.herokuapp.com/consumables/' + updatedConsumable.id, updatedConsumable).then((response) => {
       console.log(response)
+      props.getOneTool(props.tool.id)
       toggleConsEdit()
+    })
+  }
+  const updateTool = (updatedTool) => {
+    axios.put('https://cc-api.herokuapp.com/tools/' + updatedTool.id, updatedTool).then((response) => {
+      console.log(response)
+      props.getOneTool(props.tool.id)
+      toggleToolEdit()
     })
   }
   const toggleConsForm = () => {
@@ -30,25 +41,36 @@ const ShowTool = (props) => {
       setShowConsEdit(consumable.id)
     }
   }
+  const toggleToolEdit = () => {
+    setShowToolEdit(!showToolEdit)
+  }
   return (
     <>
       <Button variant='contained' onClick={props.showList}>Back</Button>
       <Grid m={2} container justifyContent="center">
-        <Grid item textAlign="center" md={6}>
+        <Grid item md={6}>
           <Card>
-          <Box p={4}>
-          {/* Display tool info */}
-          <h2>{props.tool.name}</h2>
-          <h4>Brand: {props.tool.brand}</h4>
-          <Button variant='outlined' target='blank' href={props.tool.link}>order more</Button>
-              <h5>Qty: {props.tool.qty}</h5>
+            <Box m={2} p={4}>
+              <Button onClick={toggleToolEdit}>Edit</Button>
+              {showToolEdit ?
+                <EditTool tool={props.tool} updateTool={updateTool} toggleToolEdit={toggleToolEdit} />
+                :
+                <>
+                  <Typography variant='h3'>{props.tool.name}</Typography>
+                  <Typography variant="h5" color="secondary.light">Brand: {props.tool.brand}</Typography>
+                  <Box textAlign="right">
+                    <h5>Qty: {props.tool.qty}</h5>
+                    <Button variant='outlined' target='blank' href={props.tool.link}>order more</Button>
+                  </Box>
+                </>
+              }
             </Box>
           </Card >
-          <h2>Consumables:</h2>
+          <Typography variant='h3' color="primary.dark">Consumables:</Typography>
           <Button variant='contained' onClick={toggleConsForm}>Add Consumable</Button>
           {showConsForm ?
             <AddConsumable showConsForm={showConsForm} toggleConsForm={toggleConsForm} tool={props.tool} createConsumable={createConsumable} />
-              : null}
+            : null}
         </Grid>
       </Grid>
       {/* display tool consumables info */}
@@ -56,19 +78,19 @@ const ShowTool = (props) => {
       {props.tool.consumables ?
         props.tool.consumables.map((consumable, i) => {
           return (
-            <Grid item md={5} key={consumable.id}>
+            <Grid item md={5} xs={11} key={consumable.id}>
               <Paper>
                 <Box m={2} p={3}>
-                  <Button variant='outlined' onClick={() => toggleConsEdit(consumable)}>Edit</Button>
+                  <Button  onClick={() => toggleConsEdit(consumable)}>Edit</Button>
                   {showConsEdit === consumable.id ?
-                    <EditConsumable consumable={consumable} updateConsumable={updateConsumable} />
+                    <EditConsumable toggleConsEdit={toggleConsEdit} getOneTool={props.getOneTool} consumable={consumable} updateConsumable={updateConsumable} />
                     :
                     <>
-                      <h3>{consumable.name}</h3>
-                      <h4>Brand: {consumable.brand}</h4>
-                      <Button variant='outlined' target='blank' href={consumable.link}>order more</Button>
+                      <Typography variant='h3'>{consumable.name}</Typography>
+                      <Typography variant='h5' color="secondary.light">Brand: {consumable.brand}</Typography>
                       <Box textAlign="right">
                         <h5>Qty: {consumable.qty}</h5>
+                        <Button variant='outlined' target='blank' href={consumable.link}>order more</Button>
                       </Box>
                     </>
                   }

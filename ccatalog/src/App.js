@@ -22,7 +22,7 @@ function App() {
                 <Typography mx={5} display="inline" onClick={() => setView('materials')}>materials</Typography>
             </Grid>
           </Paper>
-      <Grid container p={2} justifyContent="space-around">
+      <Grid container spacing={2} p={2} justifyContent="space-around">
         {view === 'tools' ?
           <Tools />
           : view === 'materials' ?

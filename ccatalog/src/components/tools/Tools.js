@@ -52,7 +52,7 @@ const Tools = () => {
   return (
     <>
 
-      <Typography variant="h3" color='secondary.light'>Tools</Typography>
+      <Typography variant="h3" color='primary.dark'>Tools</Typography>
       <Grid item m={2} xs={12}>
       <Container>
         <Button variant="contained" onClick={toggleShowAdd}>Add Tool</Button>
@@ -64,7 +64,7 @@ const Tools = () => {
       {view === 'list' ?
         <ListTools showTool={showTool} tools={tools} />
         :
-        <ShowTool showList={showList} tool={oneTool} />
+        <ShowTool getOneTool={getOneTool} showList={showList} tool={oneTool} />
       }
     </>
   )

@@ -12,7 +12,8 @@ const handleChange = (event) => {
 const handleSubmit = (event) => {
   event.preventDefault()
   props.createConsumable(consumable)
-}
+  props.toggleConsForm()
+} 
   return (
     <>
     <Modal open={props.showConsForm}>

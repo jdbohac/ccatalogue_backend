@@ -11,15 +11,17 @@ const handleChange = (event) => {
 const handleSubmit = (event) => {
   event.preventDefault()
   props.updateConsumable(consumable)
+  props.toggleConsEdit()
 }
   return (
     <>
         <Box
+        p={2}
         component="form"
         onSubmit={handleSubmit}
         >
         <TextField
-            value={props.consumable.name}
+            value={consumable.name}
             label="Name of Consumable Item"
             name="name"
             onChange={handleChange}
@@ -27,7 +29,7 @@ const handleSubmit = (event) => {
             <br />
             <br />
         <TextField
-            value={props.consumable.qty}
+            value={consumable.qty}
             label="Quantity"
             name="qty"
             onChange={handleChange}
@@ -35,7 +37,7 @@ const handleSubmit = (event) => {
             <br />
             <br />
         <TextField
-            value={props.consumable.brand}
+            value={consumable.brand}
             label="Brand"
             name="brand"
             onChange={handleChange}
@@ -43,7 +45,7 @@ const handleSubmit = (event) => {
             <br />
             <br />
         <TextField
-            value={props.consumable.link}
+            value={consumable.link}
             label="Purchase link"
             name="link"
             onChange={handleChange}
