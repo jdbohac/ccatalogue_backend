@@ -12,9 +12,11 @@ const getResults = (event) => {
 }
 
   return (
+  <div>
     <Box m={2}>
     <TextField variant='outlined' label='search tools' onChange={getResults}></TextField>
     </Box>
+    </div>
   )
 }
 

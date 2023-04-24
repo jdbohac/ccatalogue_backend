@@ -12,7 +12,7 @@ const ListTools = (props) => {
       <Grid item lg={4} xs={10} mt={2} key={tool.id} onClick={() => props.showTool(tool.id)}>
       <Paper>
       <Box p={3}>
-        <Typography variant='h3'>{tool.name}</Typography>
+        <Typography variant='h4'>{tool.name}</Typography>
         <Typography color="secondary.light" variant='h5'>Brand: {tool.brand}</Typography>
         <Box textAlign="right">
             <p>Qty: {tool.qty}</p>

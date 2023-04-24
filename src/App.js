@@ -5,6 +5,7 @@ import Tools from "./components/tools/Tools";
 import Materials from "./components/materials/Materials";
 import theme from "./themes/color_theme.js"
 import { Box, Grid, Paper, Button, ThemeProvider, CssBaseline } from "@mui/material";
+import Header from "./components/Header";
 
 function App() {
   const [view, setView] = useState('tools')
@@ -13,19 +14,7 @@ function App() {
     <ThemeProvider theme={theme}>
     <CssBaseline>
           <Grid container >
-            <Paper color="secondary" style={{width:"100%"}}>
-            <Grid container pl={2} textAlign="left">
-        <h1>Calhoun Catalog</h1>
-      </Grid>
-              <Grid container spacing={10} justifyContent="center">
-              <Grid item>
-          <Button display="inline" onClick={() => setView('tools')}>tools</Button>
-                </Grid>
-                <Grid item>
-                <Button display="inline" onClick={() => setView('materials')}>materials</Button>
-                </Grid>
-            </Grid>
-          </Paper>
+            <Header setView={setView} />
       <Grid container spacing={2} p={2} justifyContent="center">
         {view === 'tools' ?
           <Tools />
