@@ -16,8 +16,8 @@ const Materials = () => {
   }, [])
   return (
     <> 
-    <Grid item xs={10} textAlign="center">
-        <Typography variant='h3' style={{ backgroundImage:"url('https://img.freepik.com/premium-photo/stainless-steel-texture_3249-1418.jpg')", width:"80%", height:"150%", margin:"auto"}} color="primary.dark">Materials</Typography>
+      <Grid item xs={9} textAlign="center" style={{ backgroundImage: "url('https://img.freepik.com/premium-photo/stainless-steel-texture_3249-1418.jpg')", height: "10%", margin: "auto" }}>
+        <Typography variant='h3' color="primary.dark">Materials</Typography>
       </Grid>
       <Grid item xs= {12}>
       <AddMaterial getMaterials={getMaterials} />
