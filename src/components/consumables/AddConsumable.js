@@ -56,7 +56,7 @@ const handleSubmit = (event) => {
             onChange={handleChange}
             />
             <br />
-            <Button type='submit'>Submit</Button>
+              <Button style={{ color: '#d0a9a9' }} type='submit'>Submit</Button>
       </Box>
           </Paper>
         </Grid>

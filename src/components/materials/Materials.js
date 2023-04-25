@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, Fragment } from 'react'
 import axios from 'axios'
 import { Box, Button, Grid, Paper, Typography } from '@mui/material'
 import AddMaterial from './AddMaterial'
@@ -17,14 +17,14 @@ const Materials = () => {
   return (
     <> 
     <Grid item xs={10} textAlign="center">
-        <Typography variant='h3' color="primary.dark">Materials</Typography>
+        <Typography variant='h3' style={{ backgroundImage:"url('https://img.freepik.com/premium-photo/stainless-steel-texture_3249-1418.jpg')", width:"600px", height:"120px", margin:"auto"}} color="primary.dark">Materials</Typography>
       </Grid>
       <Grid item xs= {12}>
       <AddMaterial getMaterials={getMaterials} />
       </Grid>
       {materials.map(material => {
         return (
-          <>
+          <Fragment key={material.id}>
            
             <Grid item lg={4} xs={12} mt={2}>
               <Paper>
@@ -39,7 +39,7 @@ const Materials = () => {
                 </Box>
               </Paper>
             </Grid>
-          </>
+          </Fragment>
         )
       })}
     </>

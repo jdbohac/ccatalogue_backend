@@ -55,9 +55,9 @@ const AddTool = (props) => {
                     onChange={handleChange}
                 />
                 <br />
-                <Button type='submit'>Submit</Button>
+                <Button style={{ color: '#d0a9a9' }} type='submit'>Submit</Button>
                 <Box textAlign='right'>
-                <Button variant='outlined' value={tool.id} onClick={deleteTool}>Delete</Button>
+                    <Button style={{ color: '#d0a9a9' }} variant='outlined' value={tool.id} onClick={deleteTool}>Delete</Button>
                 </Box>
             </Box>
 

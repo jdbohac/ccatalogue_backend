@@ -52,8 +52,10 @@ const Tools = () => {
 
   return (
     <>
-      <Typography align="right" variant="h3" color='primary.dark'>Tools</Typography>
+      <Typography align="center" mt={2} variant="h3" style={{ backgroundImage: "url('https://img.freepik.com/premium-photo/working-tool-screwdriver-with-selftapping-screws-table_220768-18025.jpg?size=626&ext=jpg&ga=GA1.2.707920169.1682379960&semt=robertav1_2_sidr')", width: "600px", height: "120px"}} color='primary'>Tools</Typography>
+      <Grid item container justifyContent="flex-end" xs={12}>
       <Search showList={showList} setTools={setTools} />
+      </Grid>
       <Grid item m={2} xs={12}>
       <Container>
         <Button variant="contained" onClick={toggleShowAdd}>Add Tool</Button>

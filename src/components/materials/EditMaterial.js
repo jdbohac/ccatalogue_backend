@@ -35,7 +35,7 @@ const EditMaterial = (props) => {
   }
   return (
     <>
-      <Button onClick={toggleShowEdit}>Edit Material</Button>
+      <Button onClick={toggleShowEdit}>Edit</Button>
 
       <Modal open={showEdit}>
         <Grid container p={5} justifyContent="center">
@@ -77,8 +77,8 @@ const EditMaterial = (props) => {
                 onChange={handleChange}
               />
               <br />
-              <Button type='submit'>Submit</Button>
-              <Button value={material.id} onClick={deleteMaterial}>Delete</Button>
+              <Button style={{ color: '#d0a9a9' }} type='submit'>Submit</Button>
+              <Button style={{ color: '#d0a9a9' }} value={material.id} onClick={deleteMaterial}>Delete</Button>
             </Box>
           </Paper>
         </Grid>
