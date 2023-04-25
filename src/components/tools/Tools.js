@@ -52,15 +52,16 @@ const Tools = () => {
 
   return (
     <>
-      <Typography align="center" mt={2} variant="h3" style={{ backgroundImage: "url('https://img.freepik.com/premium-photo/working-tool-screwdriver-with-selftapping-screws-table_220768-18025.jpg?size=626&ext=jpg&ga=GA1.2.707920169.1682379960&semt=robertav1_2_sidr')", width: "600px", height: "120px"}} color='primary'>Tools</Typography>
-      <Grid item container justifyContent="flex-end" xs={12}>
+      <Typography align="center" mt={2} variant="h3" style={{ backgroundImage: "url('https://img.freepik.com/premium-photo/working-tool-screwdriver-with-selftapping-screws-table_220768-18025.jpg?size=626&ext=jpg&ga=GA1.2.707920169.1682379960&semt=robertav1_2_sidr')", width: "70%", height: "8%"}} color='primary'>Tools</Typography>
+      <Grid item container justifyContent="space-between" xs={12}>
+        <Grid item m={2} xs={4}>
+          <Container>
+            <Button variant="contained" onClick={toggleShowAdd}>Add Tool</Button>
+          </Container>
+        </Grid>
       <Search showList={showList} setTools={setTools} />
       </Grid>
-      <Grid item m={2} xs={12}>
-      <Container>
-        <Button variant="contained" onClick={toggleShowAdd}>Add Tool</Button>
-        </Container>
-      </Grid>
+      
       {showAdd ?
         <AddTool showAdd={showAdd} toggleShowAdd={toggleShowAdd} createTool={createTool} />
         : null}
