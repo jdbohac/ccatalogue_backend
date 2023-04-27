@@ -16,7 +16,7 @@ const Materials = () => {
   }, [])
   return (
     <> 
-      <Grid item xs={9} textAlign="center" style={{ backgroundImage: "url('https://img.freepik.com/premium-photo/stainless-steel-texture_3249-1418.jpg')", height: "10%", margin: "auto" }}>
+      <Grid item xs={9} textAlign="center" style={{ backgroundImage: "url('https://img.freepik.com/premium-photo/stainless-steel-texture_3249-1418.jpg')", height: "8rem", maxWidth: "25rem", margin: "auto" }}>
         <Typography variant='h3' color="primary.dark">Materials</Typography>
       </Grid>
       <Grid item xs= {12}>
@@ -26,7 +26,7 @@ const Materials = () => {
         return (
           <Fragment key={material.id}>
            
-            <Grid item lg={4} xs={12} mt={2}>
+            <Grid item md={4} xs={12} mt={2}>
               <Paper>
                 <Box p={3}>
                 <EditMaterial material={material} getMaterials={getMaterials} />

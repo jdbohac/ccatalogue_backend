@@ -48,7 +48,7 @@ const ShowTool = (props) => {
     <>
       <Button variant='contained' onClick={props.showList}>Back</Button>
       <Grid m={2} container justifyContent="center">
-        <Grid item md={6}>
+        <Grid item md={10} xs={12}>
           <Card>
             <Box m={2} p={4}>
               <Button onClick={toggleToolEdit}>Edit</Button>
@@ -78,7 +78,7 @@ const ShowTool = (props) => {
       {props.tool.consumables ?
         props.tool.consumables.map((consumable, i) => {
           return (
-            <Grid item md={5} xs={11} key={consumable.id}>
+            <Grid item md={4} xs={12} key={consumable.id}>
               <Paper>
                 <Box m={2} p={3}>
                   <Button  onClick={() => toggleConsEdit(consumable)}>Edit</Button>
