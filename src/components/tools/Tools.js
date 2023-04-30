@@ -52,7 +52,7 @@ const Tools = () => {
 
   return (
     <>
-      <Grid item xs={9} textAlign="center" style={{ backgroundPosition:"center", backgroundImage:"url(https://cdn.mscdirect.com/global/images/ProductImages/4884492-21.jpg)", top:"20px", height: "8rem", maxWidth:"25rem", margin: "auto" }}>
+      <Grid item xs={9} textAlign="center" style={{ backgroundPosition: "center", backgroundImage: "url(https://cdn.mscdirect.com/global/images/ProductImages/4884492-21.jpg)", top: "20px", height: "8rem", maxWidth: "25rem", margin: "auto", borderRadius: "0 0 8px 8px" }}>
       <Typography mt={2} variant="h3"  color='primary.light'>Tools</Typography>
       </Grid>
       <Grid item container justifyContent="space-between" xs={12}>

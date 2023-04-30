@@ -5,7 +5,7 @@ import React from 'react'
 const Search = (props) => {
 
 const getResults = (event) => {
-  axios.get('https://cc-api.herokuapp.com/search.json?q=' + event.target.value).then((response) => {
+  axios.get('https://cc-api.herokuapp.com/search.json?tool=' + event.target.value).then((response) => {
     props.setTools(response.data)
     props.showList()
   })

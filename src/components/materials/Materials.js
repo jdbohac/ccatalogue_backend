@@ -3,6 +3,7 @@ import axios from 'axios'
 import { Box, Button, Grid, Paper, Typography } from '@mui/material'
 import AddMaterial from './AddMaterial'
 import EditMaterial from './EditMaterial'
+import MaterialsSearch from './MaterialsSearch'
 
 const Materials = () => {
   const [materials, setMaterials] = useState([])
@@ -16,11 +17,14 @@ const Materials = () => {
   }, [])
   return (
     <> 
-      <Grid item xs={9} textAlign="center" style={{ backgroundImage: "url('https://img.freepik.com/premium-photo/stainless-steel-texture_3249-1418.jpg')", height: "8rem", maxWidth: "25rem", margin: "auto" }}>
+      <Grid item md={9} textAlign="center" style={{ backgroundImage: "url('https://img.freepik.com/premium-photo/stainless-steel-texture_3249-1418.jpg')", height: "8rem", maxWidth: "25rem", margin: "auto", borderRadius:"0 0 8px 8px" }}>
         <Typography variant='h3' color="primary.dark">Materials</Typography>
       </Grid>
-      <Grid item xs= {12}>
+      <Grid item xs= {8}>
       <AddMaterial getMaterials={getMaterials} />
+      </Grid>
+      <Grid item xs={4}>
+      <MaterialsSearch setMaterials={setMaterials} />
       </Grid>
       {materials.map(material => {
         return (
