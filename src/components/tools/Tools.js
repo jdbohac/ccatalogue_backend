@@ -52,8 +52,8 @@ const Tools = () => {
 
   return (
     <>
-      <Grid item xs={9} textAlign="center" style={{ backgroundImage:"url('https://img.freepik.com/premium-photo/working-tool-screwdriver-with-selftapping-screws-table_220768-18025.jpg?size=626&ext=jpg&ga=GA1.2.707920169.1682379960&semt=robertav1_2_sidr')", height: "8rem", maxWidth:"25rem", margin: "auto" }}>
-      <Typography mt={2} variant="h3"  color='primary'>Tools</Typography>
+      <Grid item xs={9} textAlign="center" style={{ backgroundPosition:"center", backgroundImage:"url(https://cdn.mscdirect.com/global/images/ProductImages/4884492-21.jpg)", top:"20px", height: "8rem", maxWidth:"25rem", margin: "auto" }}>
+      <Typography mt={2} variant="h3"  color='primary.light'>Tools</Typography>
       </Grid>
       <Grid item container justifyContent="space-between" xs={12}>
         <Grid item m={2} xs={8}>
