@@ -1,11 +1,11 @@
 import React from 'react'
-import { Paper, Grid, Button,  } from '@mui/material'
+import { Paper, Grid, Button, Typography,  } from '@mui/material'
 const Header = (props) => {
   return (
     <>
       <Paper color="secondary" style={{ width: "100%" }}>
         <Grid container pl={2} textAlign="left">
-          <h1>Calhoun Catalog</h1>
+          <Typography fontFamily="tilt prism" variant="h3">Calhoun Catalog</Typography>
         </Grid>
         <Grid container spacing={10} justifyContent="center">
           <Grid item>
