@@ -13,15 +13,13 @@ function App() {
     <>
     <ThemeProvider theme={theme}>
     <CssBaseline>
-          <Grid container >
-            <Header setView={setView} />
       <Grid container spacing={2} p={2} justifyContent="center">
         {view === 'tools' ?
-          <Tools />
+          <Tools 
+            setMainView={setView}  />
           : view === 'materials' ?
-            <Materials />
+            <Materials setMainView={setView} />
           : null}
-      </Grid>
       </Grid>
         </CssBaseline>
       </ThemeProvider>

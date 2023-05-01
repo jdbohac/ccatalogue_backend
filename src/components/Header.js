@@ -9,10 +9,16 @@ const Header = (props) => {
         </Grid>
         <Grid container spacing={10} justifyContent="center">
           <Grid item>
-            <Button display="inline" onClick={() => props.setView('tools')}>tools</Button>
+            <Button display="inline" onClick={() => { 
+                            props.setView ?
+                              props.setView("list")
+                            :
+                              props.setMainView('tools');
+                            }}>tools</Button>
+                            
           </Grid>
           <Grid item>
-            <Button display="inline" onClick={() => props.setView('materials')}>materials</Button>
+            <Button display="inline" onClick={() => props.setMainView('materials')}>materials</Button>
           </Grid>
         </Grid>
       </Paper>

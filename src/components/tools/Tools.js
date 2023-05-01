@@ -5,9 +5,10 @@ import ListTools from "./ListTools";
 import ShowTool from "./ShowTool"
 import { Box, Button, Container, Grid, Typography } from '@mui/material'
 import Search from "../Search";
+import Header from "../Header";
 
 
-const Tools = () => {
+const Tools = (props) => {
 
   const [view, setView] = useState('list')
   const [tools, setTools] = useState([])
@@ -52,6 +53,7 @@ const Tools = () => {
 
   return (
     <>
+    <Header setView={setView} setMainView={props.setMainView} />
       <Grid item xs={9} textAlign="center" style={{ backgroundPosition: "center", backgroundImage: "url(https://i.pinimg.com/originals/22/29/31/2229318c6c83e6cc6bd5443ba09d29e8.jpg)", top: "20px", height: "8rem", maxWidth: "25rem", margin: "auto", borderRadius: "0 0 8px 8px" }}>
       <Typography mt={5} variant="h3" fontFamily="tilt prism" fontWeight="500"  color='primary.light'>Tools</Typography>
       </Grid>

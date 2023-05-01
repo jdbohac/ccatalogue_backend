@@ -4,8 +4,9 @@ import { Box, Button, Grid, Paper, Typography } from '@mui/material'
 import AddMaterial from './AddMaterial'
 import EditMaterial from './EditMaterial'
 import MaterialsSearch from './MaterialsSearch'
+import Header from '../Header'
 
-const Materials = () => {
+const Materials = (props) => {
   const [materials, setMaterials] = useState([])
   const getMaterials = () => {
     axios.get('https://cc-api.herokuapp.com/materials').then((response) => {
@@ -17,6 +18,7 @@ const Materials = () => {
   }, [])
   return (
     <> 
+    <Header setMainView={props.setMainView} />
       <Grid item md={9} textAlign="center" style={{ backgroundImage: "url('https://img.freepik.com/premium-photo/stainless-steel-texture_3249-1418.jpg')", height: "8rem", maxWidth: "25rem", margin: "auto", borderRadius:"0 0 8px 8px" }}>
         <Typography mt={5} variant='h3' fontFamily="tilt prism" fontWeight="400" color="primary.dark">Materials</Typography>
       </Grid>
