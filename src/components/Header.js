@@ -5,7 +5,7 @@ const Header = (props) => {
     <>
       <Paper color="secondary" style={{ width: "100%" }}>
         <Grid container pl={2} textAlign="left">
-          <Typography fontFamily="tilt prism" variant="h3">Calhoun Catalog</Typography>
+          <Typography fontFamily="tilt prism" fontWeight="200" variant="h3">Calhoun Catalog</Typography>
         </Grid>
         <Grid container spacing={10} justifyContent="center">
           <Grid item>

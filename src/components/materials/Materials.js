@@ -18,7 +18,7 @@ const Materials = () => {
   return (
     <> 
       <Grid item md={9} textAlign="center" style={{ backgroundImage: "url('https://img.freepik.com/premium-photo/stainless-steel-texture_3249-1418.jpg')", height: "8rem", maxWidth: "25rem", margin: "auto", borderRadius:"0 0 8px 8px" }}>
-        <Typography mt={5} variant='h3' fontFamily="tilt prism" color="primary.dark">Materials</Typography>
+        <Typography mt={5} variant='h3' fontFamily="tilt prism" fontWeight="400" color="primary.dark">Materials</Typography>
       </Grid>
       <Grid container justifyContent="space-between">
       <Grid item m={2} xs= {8}>
