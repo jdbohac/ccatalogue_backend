@@ -1,8 +1,10 @@
 
 # Calhoun Catalog Frontend repository
 
-This is the React front-end for an inventory cataloging app for a small steel-works shop.  
+This is the front-end for an inventory cataloging app for a small steel-works shop.
+
 The front-end was built on React framework with Material UI for consistent styling.  
+
 The deployed version of this site is [available here](http://calhouncatalog.herokuapp.com/). 
 
 This app was built as my final capstone project during my tenure at General Assembly Software Engineering bootcamp.
